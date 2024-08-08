@@ -1,0 +1,51 @@
+{% extends "default.html" %}
+
+{% load custom_filters %}
+
+{% load custom_tags %}
+
+{% block title %}
+news_list
+{% endblock title %}
+
+{% block content %}
+  <h1>Все новости ({{ news_list|length }})</h1>
+  <h2>{% current_time '%b %d %Y' %}</h2>
+  <h2>{{ next_news|default_if_none:"Тут пока ничего нет" }}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Название</th>
+        <th>Дата создания</th>
+        <th>Предварительный просмотр</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for news_item in news_list %}
+        <tr>
+          <td><a href="{% url 'news_detail' news_item.pk %}">{{ news_item.title|censor }}</a></td>
+          <td>{{ news_item.created_at|date:"d.m.Y" }}</td>
+          <td>{{ news_item.preview|truncatewords:20 }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+{% endblock %}
