@@ -1,0 +1,14 @@
+{% extends "default.html" %}
+
+{% block title %}
+    {{ form.instance.pk|default_if_none:"Создание новости" }}
+{% endblock %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Редактировать{% else %}Создать{% endif %} новость</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+  </form>
+{% endblock %}
