@@ -1,0 +1,15 @@
+{% load account %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Document" %}</title>
+</head>
+<body>
+    <h1>{% trans "Thank you for registering %(username)s!" %}</h1>
+    <h3>{% trans "Please follow" %} <a href="{{ activate_url }}">{% trans "the link" %}</a> {% trans "to activate your account" %}</h3>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>{% trans "Weekly Newsletter" %}</title>
+</head>
+<body>
+    <h1>{% trans "Hello, %(username)s!" %}</h1>
+     <p>{% trans "Here is the list of new articles from the last week in the category %(category_name)s:" %}</p>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+      <p>{% trans "Thank you for reading us!" %}</p>
+</body>
+</html>

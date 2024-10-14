@@ -1,0 +1,87 @@
+{% extends "default.html" %}
+
+{% load custom_filters %}
+{% load custom_tags %}
+{% load cache %}
+{% load i18n %}
+{% load tz %}
+
+{% block title %}
+news_list
+{% endblock title %}
+
+{% block content %}
+  <style>
+      body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %} powderblue {% endif %};}
+  </style>
+
+  <h1>{% trans "All News" %} ({{ news_list|length }})</h1>
+  <h2>{{ current_time|date:"%b %d %Y" }}</h2>
+  <h2>{{ next_news|default_if_none:"Тут пока ничего нет" }}</h2>
+
+  <form action="" method="POST">
+      {% csrf_token %}
+      <label for="timezone">{% trans "Time zone:" %}</label>
+      <select name="timezone">
+          {% for tz in timezones %}
+          <option value="{{ tz }}"{% if tz == request.session.django_timezone %} selected{% endif %}>{{ tz }}</option>
+          {% endfor %}
+      </select>
+      <input type="submit" value="{% trans 'Set' %}">
+  </form>
+
+  {% cache 300 categories %}
+  {% for category in categories %}
+      <h3>{{ category.name }}</h3>
+      {% if user.is_authenticated %}
+          {% if user in category.subscribers.all %}
+              <p>{% trans "You are subscribed to this category." %}</p>
+          {% else %}
+              <form method="post" action="{% url 'subscribe_to_category' category.id %}">
+                  {% csrf_token %}
+                  <button type="submit">{% trans "Subscribe to" %} {{ category.name }}</button>
+              </form>
+          {% endif %}
+      {% else %}
+          <p>{% trans "Log in to subscribe to this category." %}</p>
+      {% endif %}
+  {% endfor %}
+  {% endcache %}
+
+  <table>
+    <thead>
+      <tr>
+        <th>{% trans "Title" %}</th>
+        <th>{% trans "Creation Date" %}</th>
+        <th>{% trans "Preview" %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for news_item in news_list %}
+        <tr>
+          <td><a href="{% url 'news_detail' news_item.pk %}">{{ news_item.title|censor }}</a></td>
+          <td>{{ news_item.created_at|date:"d.m.Y" }}</td>
+          <td>{{ news_item.preview|truncatewords:20 }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+{% endblock %}

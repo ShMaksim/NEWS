@@ -1,0 +1,6 @@
+{% load i18n %}
+
+<p>{% trans "Hello, %(username)s." %}</p>
+<p>{% trans "A new article in your favorite section!" %}</p>
+<h2>{{ news.title }}</h2>
+<p>{{ news.text|truncatechars:50 }}</p>

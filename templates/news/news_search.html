@@ -1,0 +1,48 @@
+{% extends "default.html" %}
+
+{% load i18n %}
+
+{% block title %}
+{% trans "News Search" %}
+{% endblock title %}
+
+{% block content %}
+  <h1>{% trans "News Search" %}</h1>
+  <form method="get">
+    {{ filterset.form.as_p }}
+    <button type="submit">{% trans "Search" %}</button>
+  </form>
+
+  <h2>{% trans "Search Results" %}</h2>
+  <ul>
+    {% for news_item in news_search_list %}
+      <li>
+        <a href="{% url 'news_detail' news_item.pk %}">{{ news_item.title }}</a>
+        <p>{% trans "Author" %}: {{ news_item.author.user.username }}</p>
+        <p>{% trans "Date" %}: {{ news_item.created_at|date:"d.m.Y" }}</p>
+      </li>
+    {% empty %}
+      <p>{% trans "No news matches the search criteria." %}</p>
+    {% endfor %}
+  </ul>
+
+  <div class="pagination">
+    {% if is_paginated %}
+      <span class="step-links">
+        {% if page_obj.has_previous %}
+          <a href="?{% if filterset.form.data %}{{ filterset.form.data.urlencode }}&{% endif %}page=1">&laquo; {% trans "First" %}</a>
+          <a href="?{% if filterset.form.data %}{{ filterset.form.data.urlencode }}&{% endif %}page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
+        {% endif %}
+
+        <span class="current">
+          {% trans "Page" %} {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+          <a href="?{% if filterset.form.data %}{{ filterset.form.data.urlencode }}&{% endif %}page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
+          <a href="?{% if filterset.form.data %}{{ filterset.form.data.urlencode }}&{% endif %}page={{ page_obj.paginator.num_pages }}">{% trans "Last" %} &raquo;</a>
+        {% endif %}
+      </span>
+    {% endif %}
+  </div>
+{% endblock %}

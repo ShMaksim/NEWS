@@ -1,0 +1,14 @@
+{% extends "default.html" %}
+{% load i18n %}
+
+<h1>{{ category.name }}</h1>
+{% if user.is_authenticated %}
+    {% if user in category.subscribers.all %}
+         <p>{% trans "You are already subscribed to this category." %}</p>
+    {% else %}
+        <form method="post" action="{% url 'subscribe_to_category' category.id %}">
+            {% csrf_token %}
+            <button type="submit">{% trans "Subscribe" %}</button>
+        </form>
+    {% endif %}
+{% endif %}
