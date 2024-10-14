@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-11 15:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\news\forms.py:25
+msgid "The title cannot be repeated in the text"
+msgstr "Название не может повторяться в тексте"
+
+#: .\news\signals.py:30
+msgid "You can't post more than three stories per day."
+msgstr "Вы не можете публиковать более трех историй в день."
+
+#: .\news\signals.py:36
+msgid "Welcome to our News Site"
+msgstr "Добро пожаловать на наш новостной сайт"
+
+#: .\news\signals.py:37
+msgid "Thank you very much for registering. Stay tuned"
+msgstr "Большое спасибо за регистрацию. Следите за нашими обновлениями"
+
+#: .\news\tasks.py:21
+#, python-format
+msgid "New articles for the week in the category %(category_name)s"
+msgstr "Новые статьи за неделю в категории %(category_name)s"
+
+#: .\news\tasks.py:40
+#, python-format
+msgid "New Post in Category  %(category_name)s"
+msgstr "Новый пост в категории %(category_name)s"
+
+#: .\news\views.py:22
+msgid "Latest news every Wednesday!"
+msgstr "Последние новости каждую среду!"
+
+#: .\news\views.py:113
+msgid "You are already subscribed to this category"
+msgstr "Вы уже подписаны на эту категорию"
+
+#: .\news\views.py:116
+#, python-format
+msgid "You have successfully subscribed to a category %(category_name)s."
+msgstr "Вы успешно подписались на категорию %(category_name)s."
+
+#: .\templates\account\email_confirmation_signup_message.html:9
+msgid "Document"
+msgstr "Документ"
+
+#: .\templates\account\email_confirmation_signup_message.html:12
+#, fuzzy, python-format
+#| msgid "Thank you for registering %(username)s!"
+msgid "Thank you for registering %%(username)s!"
+msgstr "Спасибо за регистрацию, %(username)s!"
+
+#: .\templates\account\email_confirmation_signup_message.html:13
+msgid "Please follow"
+msgstr "Пожалуйста, перейдите по"
+
+#: .\templates\account\email_confirmation_signup_message.html:13
+msgid "the link"
+msgstr "ссылке"
+
+#: .\templates\account\email_confirmation_signup_message.html:13
+msgid "to activate your account"
+msgstr "для активации аккаунта"
+
+#: .\templates\default.html:64 .\templates\main.html:26
+msgid "Set Language"
+msgstr "Установите язык"
+
+#: .\templates\email\new_post_notification.html.html:3
+#, fuzzy, python-format
+#| msgid "Hello, %(username)s."
+msgid "Hello, %%(username)s."
+msgstr "Здравствуйте, %(username)s. "
+
+#: .\templates\email\new_post_notification.html.html:4
+msgid "A new article in your favorite section!"
+msgstr "Новая статья в вашем любимом разделе!"
+
+#: .\templates\email\weekly_newsletter.html:6
+msgid "Weekly Newsletter"
+msgstr "Еженедельная рассылка"
+
+#: .\templates\email\weekly_newsletter.html:9
+#, fuzzy, python-format
+#| msgid "Hello, %(username)s!"
+msgid "Hello, %%(username)s!"
+msgstr "Здравствуйте, %(username)s!"
+
+# msgid "New articles for the week in the category %(category_name)s"
+#: .\templates\email\weekly_newsletter.html:10
+#, fuzzy, python-format
+#| msgid ""
+#| "Here is the list of new articles from the last week in the category "
+#| "%(category_name)s:"
+msgid ""
+"Here is the list of new articles from the last week in the category "
+"%%(category_name)s:"
+msgstr "Новые статьи за неделю в категории %(category_name)s"
+
+#: .\templates\email\weekly_newsletter.html:16
+msgid "Thank you for reading us!"
+msgstr "Спасибо, что читаете нас!"
+
+#: .\templates\main.html:4 .\templates\main.html:8
+msgid "Simple SignUp/SignIn app"
+msgstr "Simple SignUp/SignIn app"
+
+#: .\templates\news\category_detail.html:7
+msgid "You are already subscribed to this category."
+msgstr "Вы уже подписаны на эту категорию"
+
+#: .\templates\news\category_detail.html:11
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: .\templates\news\news_delete.html:5 .\templates\news\news_delete.html:9
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\news\news_delete.html:6
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: .\templates\news\news_delete.html:10
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\templates\news\news_detail.html:14
+msgid "Publication date:"
+msgstr "Дата публикации:"
+
+#: .\templates\news\news_detail.html:18
+msgid "Categories:"
+msgstr "Категории:"
+
+#: .\templates\news\news_detail.html:25
+msgid "You are subscribed"
+msgstr "Вы подписаны"
+
+#: .\templates\news\news_detail.html:29 .\templates\news\news_list.html:25
+msgid "Subscribe to"
+msgstr "Подписаться на"
+
+#: .\templates\news\news_detail.html:33
+msgid "Log in to subscribe"
+msgstr "Войдите, чтобы подписаться"
+
+#: .\templates\news\news_detail.html:40
+msgid "Comments"
+msgstr "Комментарии"
+
+#: .\templates\news\news_detail.html:45
+msgid "Rating:"
+msgstr "Рейтинг:"
+
+#: .\templates\news\news_edit.html:10
+msgid "Edit"
+msgstr "Редактировать"
+
+#: .\templates\news\news_edit.html:10
+msgid "Create"
+msgstr "Создать"
+
+#: .\templates\news\news_edit.html:10
+msgid "news"
+msgstr "новости"
+
+#: .\templates\news\news_edit.html:14
+msgid "Save"
+msgstr "Сохранить"
+
+#: .\templates\news\news_list.html:13
+msgid "All News"
+msgstr "Все новости"
+
+#: .\templates\news\news_list.html:21
+msgid "You are subscribed to this category."
+msgstr "Вы уже подписаны на эту категорию"
+
+#: .\templates\news\news_list.html:29
+msgid "Log in to subscribe to this category."
+msgstr "Вы уже подписаны на эту категорию"
+
+#: .\templates\news\news_list.html:38
+msgid "Title"
+msgstr "Название"
+
+#: .\templates\news\news_list.html:39
+msgid "Creation Date"
+msgstr "Дата создания"
+
+#: .\templates\news\news_list.html:40
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+#: .\templates\news\news_search.html:6 .\templates\news\news_search.html:10
+msgid "News Search"
+msgstr "Поиск новостей"
+
+#: .\templates\news\news_search.html:13
+msgid "Search"
+msgstr "Поиск"
+
+#: .\templates\news\news_search.html:16
+msgid "Search Results"
+msgstr "Результаты поиска"
+
+#: .\templates\news\news_search.html:21
+msgid "Author"
+msgstr "Автор"
+
+#: .\templates\news\news_search.html:22
+msgid "Date"
+msgstr "Дата"
+
+#: .\templates\news\news_search.html:25
+msgid "No news matches the search criteria."
+msgstr "Нет новостей, удовлетворяющих условиям поиска."
+
+#: .\templates\news\news_search.html:33
+msgid "First"
+msgstr "Первая"
+
+#: .\templates\news\news_search.html:34
+msgid "Previous"
+msgstr "Предыдущая"
+
+#: .\templates\news\news_search.html:38
+msgid "Page"
+msgstr "Страница"
+
+#: .\templates\news\news_search.html:42
+msgid "Next"
+msgstr "Следующая"
+
+#: .\templates\news\news_search.html:43
+msgid "Last"
+msgstr "Последняя"
+
+#: .\templates\protect\index.html:6
+msgid "Authorized user page"
+msgstr "Страница авторизованного пользователя"
+
+#: .\templates\protect\index.html:7
+msgid "This section may contain personal information for each user."
+msgstr ""
+"Здесь может содержаться персональная информация для каждого пользователя"
+
+#: .\templates\protect\index.html:10
+msgid "Become an author"
+msgstr "Стать автором"
+
+#: .\templates\protect\index.html:13
+msgid "Logout"
+msgstr "Выйти"
+
+#: .\templates\sign\login.html:6 .\templates\sign\login.html:20
+msgid "Login"
+msgstr "Войти в систему"
+
+#: .\templates\sign\login.html:22
+msgid "Register"
+msgstr "Регистрация"
+
+#: .\templates\sign\logout.html:6
+msgid "You have logged out"
+msgstr "Вы вышли из системы"
+
+#: .\templates\sign\signup.html:6
+msgid "Registration"
+msgstr "Регистрация"
+
+#: .\templates\sign\signup.html:10
+msgid "Continue"
+msgstr "Продолжить"
